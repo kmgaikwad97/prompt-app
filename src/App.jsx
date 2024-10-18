@@ -8,9 +8,10 @@ function App() {
   const [aiResponse, setAiResponse] = useState('');
   const [chatId, setChatId] = useState('');
 
+  const baseUrl= import.meta.env.VITE_API_URL
   const getPrompt = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/giveprompt', {
+      const response = await axios.post(`${baseUrl}/api/v1/giveprompt`, {
         userMessage,
       });
       
@@ -31,7 +32,7 @@ function App() {
         return;
       }
 
-      const response = await axios.post('http://localhost:3000/api/v1/send-email', {
+      const response = await axios.post(`${baseUrl}/api/v1/send-email`, {
         email,
         chatId,
       });
