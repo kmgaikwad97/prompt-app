@@ -12,7 +12,7 @@ function App() {
   const getPrompt = async () => {
     try {
       const response = await axios.post(`${baseUrl}/api/v1/giveprompt`, {
-        userMessage,
+        email,userMessage,
       });
       
       setAiResponse(response.data.aiResponse);
